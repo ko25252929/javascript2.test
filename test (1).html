@@ -149,68 +149,89 @@
         </div>
       </div>
       <div id="overLay">
-      </div>
+     </div>
+
       <script language="Javascript">
           var count=0;
           let key =0;
+          let con = false;
+          let register = false;
+
           let tuikaBtn = document.getElementById("tuikaBtn");
               tuikaBtn.addEventListener("click",function() {
                 var name = document.getElementById("name").value;
                 var nickname = document.getElementById("nickname").value;
-                var body = document.getElementsByTagName("body")[0];
-                var table = document.createElement('table');// table要素を生成
+               // var body = document.getElementsByTagName("body")[0];
+                
+                
                 var tr = document.createElement('tr');// tr要素を生成
                 var th = document.createElement('th');// th要素を生成
                 var td = document.createElement('td'); // td要素を生成
-                let child = document.createElement("p");
-                let child1 = document.createElement("p");
-                
-                table.appendChild(child);
-                table.appendChild(child1);
-                result.appendChild(table);
-                
+                var thead = document.createElement('thead');//thead要素
+                var child = document.createElement("td");
+                var child1 = document.createElement("td");
 
                 
-            if(!name || !nickname  ){
+            if(!name || !nickname){
              flag = 1;  
              window.alert('必須項目に未入力がありました'); // 入力漏れがあれば警告ダイアログを表示
              return false
             }
-
-            if(window.confirm(name + "さん " + nickname +"を登録します。よろしいですか？" )){
-                window.alert(name + "さん" +nickname+ "にて登録しました。") }
-              else {tuikaBth.addEventListener("change",myfunc);
-            } 
             
-            
-            child.textContent=("名前"+name)
-            child1.textContent=("ニックネーム"+nickname);
+             register = 
+             window.confirm(
+             name + "さん " + nickname +"を登録します。よろしいですか？" );
 
-                 //３回投稿で非表示
-                 if(name.value==""||nickname.value=="")return false;
-                 if(count < 2){
-                  count++;
-                  return true;
-                 } else {
-                   let hyoji =document.getElementById("tuikaBtn");
-                    hyoji.style.visibility="hidden";
-                    return false;
-                 }
-          });
 
-          tuikaBtn = document.getElementById("tuikaBtn");
-              tuikaBtn.addEventListener("click",function() {
+           // if (con){
+              const result = document.getElementById("result")
+              var table = document.createElement('table');// table要素を生成
+              child.textContent=("名前"+name)
+              child1.textContent=("ニックネーム"+nickname);
+              result.appendChild(table);
+              table.appendChild(tr);
+              tr.appendChild(child);
+              tr.appendChild(child1);   
+            //}
+          
+            con = window.alert(name + "さん" +nickname+ "にて登録しました。"
+             );
+
+             //３回投稿で非表示
+             if(name.value==""||nickname.value=="")return false;
+             if(count < 2){
+              count++;
+              return true;
+              } else {
+              let hyoji =document.getElementById("tuikaBtn");
+              hyoji.style.visibility="hidden";
+              return false;
+              }
+          
+
+          //削除ボタン
+          if (register){
+            tuikaBtn = document.getElementById("tuikaBtn");
+            tuikaBtn.addEventListener("click",function() {
             const delButton = document.createElement('input');
             delButton.classList.add('deletion');
             delButton.type = 'button';
             delButton.value = `削除`;
+            delButton.setAttribute('onclick', 'remove(this)');
             document.body.appendChild(delButton);
-        }, false);
+        }, false);}});
             
-       var list_element= document.getElementById("tuikaBtn")
-       var list_element=list_element.removeChild(list_element.firstElementChild);
-       console.log(remove_element.textContent);
-  
+        function remove(target) {
+          let tr = target.parentNode.parentNode;
+          console.log(tr);
+        }
+        //deletion = document.getElementsByClassName("delButton");
+        //console.log(deletion);
+        //deletion.addEventListener("click",function() {
+       //var list_element= document.getElementById("result");
+       //var list_element=list_element.removeChild(list_element.firstElementChild);
+       //console.log(remove_element.textContent);
+       // })
         </script>
     </body>
 
