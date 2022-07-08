@@ -212,8 +212,9 @@ let register = false;
   
     
 
+
   //３回投稿で非表示
- // if(name.value==""||nickname.value=="")return false;
+ //if(name.value==""||nickname.value=="")return false;
   if(count < 2){
     count++;
   return true;
@@ -222,25 +223,25 @@ let register = false;
       hyoji.style.visibility="hidden";
   return false;
   }
-          
-});
+
+
+
+if(table.count < 2){
+    table.count--;
+    return true;
+} else {
+let Redisplay = document.getElementById("tuikaBtn");
+    Redisplay.visibility="block";
+    return false;
+  }
+
+});       
+
 
 //削除
   function remove(target) {
   let tr = target.parentNode.parentNode;
   tr.remove();
-
-
-//削除後２投稿目追加再表示
- // if(name.value==""||nickname.value=="")return false;
-  if(count > 2){
-    count++;
-  return true;
-  } else {
-  let hyoji2 = document.getElementById("tuikaBtn");
-      hyoji2.style.display="block";
-  return false;
-  }
 }
   
  
