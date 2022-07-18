@@ -1,252 +1,248 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>アカウント登録</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <style>
-          th,td{
-              /* ヘッダ背景塗りつぶし */
-              background: #eee;
-            }
-          th,td {
-            /* 枠線を1本線指定 */
-              border: solid 1px;
-              width:auto;
-          }
 
-          table{
-            /* 枠線を1本線指定 */
-              border: solid 1px;
-              border-collapse:  collapse;
-              white-space: nowrap;
-          }
-          /*.deletion{
-            width: 50px;
-            margin-left: 450px;
-            display: block;
-            position:relative;
-            bottom:220px;
-            margin-bottom: 80px;
-          }*/
+<head>
+  <title>アカウント登録</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-          .base {
-            margin: 2% 7% 0;
-            height: 500px;
-            background: blue;
-            padding: 5% 10%;
-            box-shadow: 5px 9px 8px 5px rgba(0, 0, 0, 0.5);
-          }
-          input {
-            width: 300px;
-            height: 40px;
-            font-size: large;
-          }
-          #tuikaBtn {
-            background: green;
-          }
-          h1 {
-            font-family: serif;
-          }
-          .form-control::placeholder {
-              color: #cacaca;
-              opacity: 1;
-          }
-          table {
-            border-collapse: collapse; 
-          }
+  <style>
+    th,
+    td {
+      /* 枠線を1本線指定 */
+      border: solid 1px;
+      width: auto;
+      background: #eee;
+    }
 
-          th,td {
-            border: 1px solid #312929;
-            padding: 5px 10px;
-          }
-          .card {
-            width: 100%;
-            height: 350px;
-          }
-          .back{
-            padding: 30px;
-            position: absolute;
-            bottom: 0;
-            right: 0;
-          }
-          .form-group{
-            margin: 10px 0 15px 0px;
-          }
-          #result {
-            font-size: 120%;
-            margin: 10;
-            margin: 10px 20px;
-            padding: 10px 5px 20px;
-            margin: 10px 5px 10px 5px;
-          }
+    table {
+      /* 枠線を1本線指定 */
+      border: solid 1px;
+      border-collapse: collapse;
+      white-space: nowrap;
+    }
 
-          .row .card{
-            color: red;
-          }
+    .base {
+      margin: 2% 7% 0;
+      height: 500px;
+      background: blue;
+      padding: 5% 10%;
+      box-shadow: 5px 9px 8px 5px rgba(0, 0, 0, 0.5);
+    }
 
-          .card{
-            color: blue;
-            display: block;
-            position: relative;
-          }
+    input {
+      width: 300px;
+      height: 40px;
+      font-size: large;
+    }
 
-          #modal{
-            display: none;
-            margin:1.5em auto 0;
-            background-color: white;
-            border: 1px solid black;
-            width: 50%;
-            padding: 10px 20px;
-            position: fixed;
-            border-radius: 5px;
-          }
+    #tuikaBtn {
+      background: green;
+    }
 
-          #overLay{
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 120%;
-            background-color: rgba(0,0,0,0.75);
-          }
+    h1 {
+      font-family: serif;
+    }
 
-        </style>
-    </head>
-    <body>
-        <div class="base container">
-          <div class="row">
-            <h1>アカウント登録</h1>
-          </div>
-          <div class="row">
-            <div class="card" id="card">
-              <div class="card-block">
-                <form id="form-area" class="form-inline" method="post">
-                    <div class="form-group">
-                        <div class="input-group">
-                          <input id="name" name="name" type="text" class="form-control" placeholder="名前" >
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input id="nickname" name="nickname" type="text" class="form-control" placeholder="ニックネーム">
-                        </div>
-                    </div>
+    .form-control::placeholder {
+      color: #cacaca;
+      opacity: 1;
+    }
 
-                    <div class="form-group">
-                      <input id="tuikaBtn" type="button" name="touroku" value="追加">
-                    </div>
+    table {
+      border-collapse: collapse;
+    }
 
-                </form>
-                <div id="tuikaMoto">
-                </div>
-                <div id="result"></div>
+    th,
+    td {
+      border: 1px solid #312929;
+      padding: 5px 10px;
+    }
+
+    .card {
+      width: 100%;
+      height: 350px;
+    }
+
+    .back {
+      padding: 30px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    .form-group {
+      margin: 10px 0 15px 0px;
+    }
+
+    #result {
+      font-size: 120%;
+      margin: 10;
+      margin: 10px 20px;
+      padding: 10px 5px 20px;
+      margin: 10px 5px 10px 5px;
+    }
+
+    .row .card {
+      color: red;
+    }
+
+    .card {
+      color: blue;
+      display: block;
+      position: relative;
+    }
+
+    #modal {
+      display: none;
+      margin: 1.5em auto 0;
+      background-color: white;
+      border: 1px solid black;
+      width: 50%;
+      padding: 10px 20px;
+      position: fixed;
+      border-radius: 5px;
+    }
+
+    #overLay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 120%;
+      background-color: rgba(0, 0, 0, 0.75);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="base container">
+    <div class="row">
+      <h1>アカウント登録</h1>
+    </div>
+    <div class="row">
+      <div class="card" id="card">
+        <div class="card-block">
+          <form id="form-area" class="form-inline" method="post">
+            <div class="form-group">
+              <div class="input-group">
+                <input id="name" name="name" type="text" class="form-control" placeholder="名前">
               </div>
             </div>
-          </div>  
+            <div class="form-group">
+              <div class="input-group">
+                <input id="nickname" name="nickname" type="text" class="form-control" placeholder="ニックネーム">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input id="tuikaBtn" type="button" name="touroku" value="追加">
+            </div>
+
+          </form>
+          <div id="tuikaMoto">
+          </div>
+          <div id="result"></div>
         </div>
       </div>
-      <div id="overLay">
-     </div>
+    </div>
+  </div>
+  </div>
+  <div id="overLay">
+  </div>
 
-      <script language="Javascript">
-var count=0;
-let key =0;
-let con = false;
-let register = false;
+  <script language="Javascript">
+    var count = 0;
+    let table;
+    let rows;
 
-  let tuikaBtn = document.getElementById("tuikaBtn");
-      tuikaBtn.addEventListener("click",function() {
-  var name = document.getElementById("name").value;
-  var nickname = document.getElementById("nickname").value;
-  //var body = document.getElementsByTagName("body")[0];
+    let tuikaBtn = document.getElementById("tuikaBtn");
+    tuikaBtn.addEventListener("click", function () {
+      var name = document.getElementById("name").value;
+      var nickname = document.getElementById("nickname").value;
+      //var body = document.getElementsByTagName("body")[0];
 
-   //テーブル
-  const result = document.getElementById("result")
-  var table = document.createElement('table');// table要素を生成
-  table.id = 'table';
-  var tr = document.createElement('tr');// tr要素を生成
-  var th = document.createElement('th');// th要素を生成
-  var td = document.createElement('td'); // td要素を生成
-  var thead = document.createElement('thead');//thead要素
-  var child = document.createElement("td");
-  var child1 = document.createElement("td");
-
-  //削除ボタン
-  const delButton = document.createElement('input');
-  delButton.classList.add('deletion');
-  delButton.type = 'button';
-  delButton.value = `削除`;
-  delButton.setAttribute('onclick', 'remove(this)');
-
-  delButton.style.width = '50px';
-  delButton.style.height = '40px';
- 
-  result.appendChild(table);
-  table.appendChild(thead);
-  thead.appendChild(tr);
-  tr.appendChild(child);
-  tr.appendChild(child1); 
-  tr.appendChild(delButton);
-
-  
-
-  if(!name || !nickname ){
-    flag = 1;  
-    window.alert('必須項目未入力'); // 入力漏れがあれば警告ダイアログを表示
-  return false;
-  }
-        
-  if (!window.confirm(name + "さん " + nickname +"を登録します。よろしいですか？" ))
-    { return false;
-  }
-                
-  window.alert(name + "さん" + nickname+ "にて登録しました。"
-  );
-              
-
-  child.textContent=("名前"+name)
-  child1.textContent=("ニックネーム"+nickname);
-  
-    
-
-
-  //３回投稿で非表示
- //if(name.value==""||nickname.value=="")return false;
-  if(count < 2){
-    count++;
-  return true;
-  } else {
-  let hyoji = document.getElementById("tuikaBtn");
-      hyoji.style.visibility="hidden";
-  return false;
-  }
+      //テーブル
+      const result = document.getElementById("result")
+      var table = document.createElement('table');// table要素を生成
+      table.id = 'table';
+      var tr = document.createElement('tr');// tr要素を生成
+      var th = document.createElement('th');// th要素を生成
+      var td = document.createElement('td'); // td要素を生成
+      var thead = document.createElement('thead');//thead要素
+      var child = document.createElement("td");
+      var child1 = document.createElement("td");
 
 
 
-if(table.count < 2){
-    table.count--;
-    return true;
-} else {
-let Redisplay = document.getElementById("tuikaBtn");
-    Redisplay.visibility="block";
-    return false;
-  }
+      result.appendChild(table);
+      table.appendChild(thead);
+      thead.appendChild(tr);
+      tr.appendChild(child);
+      tr.appendChild(child1);
 
-});       
+      //削除ボタン
+      const delButton = document.createElement('input');
+      delButton.classList.add('deletion');
+      delButton.type = 'button';
+      delButton.value = `削除`;
+      delButton.setAttribute('onclick', 'remove(this)');
+      tr.appendChild(delButton);
+      delButton.style.width = '50px';
+      delButton.style.height = '40px';
 
 
-//削除
-  function remove(target) {
-  let tr = target.parentNode.parentNode;
-  tr.remove();
-}
-  
- 
- </script>
- </body>
+
+      if (!name || !nickname) {
+        flag = 1;
+        window.alert('必須項目未入力'); // 入力漏れがあれば警告ダイアログを表示
+        return false;
+      }
+
+      if (!window.confirm(name + "さん " + nickname + "を登録します。よろしいですか？")) {
+        return false;
+      }
+
+      window.alert(name + "さん" + nickname + "にて登録しました。");
+
+
+      child.textContent = ("名前" + name)
+      child1.textContent = ("ニックネーム" + nickname);
+
+
+      rows = table.rows;
+
+
+      //３回投稿で非表示
+      if (count < 2) {
+        count++;
+        return true;
+      } else {
+        let tuika = document.getElementById("tuikaBtn");
+        tuika.style.visibility = "hidden";
+        return false;
+      }
+    });
+
+
+
+    //削除
+    function remove(target) {
+      let tr = target.parentNode.parentNode;
+      tr.remove();
+
+      if (count > 0) {
+        count--;
+        const deleteButtons = document.getElementsByClassName('deletion');
+        let tuika = document.getElementById("tuikaBtn");
+        Array.prototype.forEach.call(deleteButtons, deleteButton => {
+          tuika.style.visibility = "visible";
+        });
+      }
+    }
+  </script>
+</body>
 
 
 </html>
