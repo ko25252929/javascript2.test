@@ -9,15 +9,10 @@
   <style>
     th,
     td {
-      /* ヘッダ背景塗りつぶし */
-      background: #eee;
-    }
-
-    th,
-    td {
       /* 枠線を1本線指定 */
       border: solid 1px;
       width: auto;
+      background: #eee;
     }
 
     table {
@@ -26,15 +21,6 @@
       border-collapse: collapse;
       white-space: nowrap;
     }
-
-    /*.deletion{
-            width: 50px;
-            margin-left: 450px;
-            display: block;
-            position:relative;
-            bottom:220px;
-            margin-bottom: 80px;
-          }*/
 
     .base {
       margin: 2% 7% 0;
@@ -168,9 +154,8 @@
 
   <script language="Javascript">
     var count = 0;
-    let key = 0;
-    let con = false;
-    let register = false;
+    let table;
+    let rows;
 
     let tuikaBtn = document.getElementById("tuikaBtn");
     tuikaBtn.addEventListener("click", function () {
@@ -189,22 +174,23 @@
       var child = document.createElement("td");
       var child1 = document.createElement("td");
 
-      //削除ボタン
-      const delButton = document.createElement('input');
-      delButton.classList.add('deletion');
-      delButton.type = 'button';
-      delButton.value = `削除`;
-      delButton.setAttribute('onclick', 'remove(this)');
 
-      delButton.style.width = '50px';
-      delButton.style.height = '40px';
 
       result.appendChild(table);
       table.appendChild(thead);
       thead.appendChild(tr);
       tr.appendChild(child);
       tr.appendChild(child1);
+
+      //削除ボタン
+      const delButton = document.createElement('input');
+      delButton.classList.add('deletion');
+      delButton.type = 'button';
+      delButton.value = `削除`;
+      delButton.setAttribute('onclick', 'remove(this)');
       tr.appendChild(delButton);
+      delButton.style.width = '50px';
+      delButton.style.height = '40px';
 
 
 
@@ -218,50 +204,45 @@
         return false;
       }
 
-      window.alert(name + "さん" + nickname + "にて登録しました。"
-      );
+      window.alert(name + "さん" + nickname + "にて登録しました。");
 
 
       child.textContent = ("名前" + name)
       child1.textContent = ("ニックネーム" + nickname);
 
 
+      rows = table.rows;
 
 
       //３回投稿で非表示
-      //if(name.value==""||nickname.value=="")return false;
       if (count < 2) {
         count++;
         return true;
       } else {
-        let hyoji = document.getElementById("tuikaBtn");
-        hyoji.style.visibility = "hidden";
+        let tuika = document.getElementById("tuikaBtn");
+        tuika.style.visibility = "hidden";
         return false;
       }
-
-
-
-      if (table.count < 2) {
-        table.count--;
-        return true;
-      } else {
-        let Redisplay = document.getElementById("tuikaBtn");
-        Redisplay.visibility = "block";
-        return false;
-      }
-
     });
+
 
 
     //削除
     function remove(target) {
       let tr = target.parentNode.parentNode;
       tr.remove();
+
+      if (count > 0) {
+        count--;
+        const deleteButtons = document.getElementsByClassName('deletion');
+        let tuika = document.getElementById("tuikaBtn");
+        Array.prototype.forEach.call(deleteButtons, deleteButton => {
+          tuika.style.visibility = "visible";
+        });
+      }
     }
-
-
   </script>
 </body>
-
+Ï
 
 </html>
