@@ -163,6 +163,13 @@
       var nickname = document.getElementById("nickname").value;
       //var body = document.getElementsByTagName("body")[0];
 
+      
+      if (!name.trim()|| !nickname.trim()) {
+        flag = 1;
+        window.alert('必須項目未入力'); // 入力漏れがあれば警告ダイアログを表示
+        return false;
+      }
+      
       //テーブル
       const result = document.getElementById("result")
       var table = document.createElement('table');// table要素を生成
@@ -194,11 +201,6 @@
 
 
 
-      if (!name || !nickname) {
-        flag = 1;
-        window.alert('必須項目未入力'); // 入力漏れがあれば警告ダイアログを表示
-        return false;
-      }
 
       if (!window.confirm(name + "さん " + nickname + "を登録します。よろしいですか？")) {
         return false;
@@ -213,21 +215,16 @@
 
       rows = table.rows;
 
-
+      count++;
       //３回投稿で非表示
-      if (count < 2) {
-        count++;
-        return true;
-      } else {
-        let tuika = document.getElementById("tuikaBtn");
-        tuika.style.visibility = "hidden";
+      if (count >= 3) {
+        tuikaBtn.style.visibility = "hidden";
         return false;
       }
     });
 
 
-
-    //削除
+    //削除/削除ボタン押して追加表示
     function remove(target) {
       let tr = target.parentNode.parentNode;
       tr.remove();
@@ -243,6 +240,6 @@
     }
   </script>
 </body>
-Ï
+
 
 </html>
